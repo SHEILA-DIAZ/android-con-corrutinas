@@ -55,11 +55,11 @@ data class Noticia(
 // Estos datos simulan lo que vendría de una API o base de datos
 // ============================================================
 val noticias = listOf(
-    Noticia("Breaking News", "@breaking", "🏆 Nuevo récord mundial de atletismo en los 100m. El atleta jamaicano rompe la barrera histórica.", "hace 2 min", "12.4K", "3.2K", Color(0xFFE53935)),
-    Noticia("Tech Today", "@techtoday", "🤖 OpenAI lanza su nuevo modelo GPT-5. Los expertos quedan impresionados por sus capacidades.", "hace 5 min", "45.1K", "8.7K", Color(0xFF1565C0)),
-    Noticia("Sports Live", "@sportslive", "⚽ La selección nacional clasifica al Mundial con gol en el último minuto. El país celebra.", "hace 8 min", "98.3K", "21.5K", Color(0xFF2E7D32)),
-    Noticia("World News", "@worldnews", "🌍 Cumbre climática alcanza acuerdo histórico. 195 países firman el nuevo tratado verde.", "hace 12 min", "33.7K", "5.1K", Color(0xFFF57F17)),
-    Noticia("Entertainment", "@entertain", "🎬 La película más esperada del año rompe récords en su primer fin de semana de estreno.", "hace 15 min", "67.2K", "14.8K", Color(0xFF6A1B9A))
+    Noticia("Breaking News", "@breaking", "Nuevo récord mundial de atletismo en los 100m. El atleta jamaicano rompe la barrera histórica.", "hace 2 min", "12.4K", "3.2K", Color(0xFFE53935)),
+    Noticia("Tech Today", "@techtoday", "OpenAI lanza su nuevo modelo GPT-5. Los expertos quedan impresionados por sus capacidades.", "hace 5 min", "45.1K", "8.7K", Color(0xFF1565C0)),
+    Noticia("Sports Live", "@sportslive", "La selección nacional clasifica al Mundial con gol en el último minuto. El país celebra.", "hace 8 min", "98.3K", "21.5K", Color(0xFF2E7D32)),
+    Noticia("World News", "@worldnews", "Cumbre climática alcanza acuerdo histórico. 195 países firman el nuevo tratado verde.", "hace 12 min", "33.7K", "5.1K", Color(0xFFF57F17)),
+    Noticia("Entertainment", "@entertain", "La película más esperada del año rompe récords en su primer fin de semana de estreno.", "hace 15 min", "67.2K", "14.8K", Color(0xFF6A1B9A))
 )
 
 // ============================================================
@@ -79,11 +79,11 @@ class MainActivity : ComponentActivity() {
 
 // ============================================================
 // PANTALLA PRINCIPAL — CON CORRUTINA
-// ✅ Se usa corrutina con launch + withContext (código limpio)
-// ✅ No necesita Thread ni Handler manual
-// ✅ Dispatchers.IO maneja automáticamente el hilo secundario
-// ✅ El código es simple, legible y fácil de mantener
-// ✅ Se puede cancelar fácilmente si es necesario
+// Se usa corrutina con launch + withContext (código limpio)
+// No necesita Thread ni Handler manual
+// Dispatchers.IO maneja automáticamente el hilo secundario
+// El código es simple, legible y fácil de mantener
+// Se puede cancelar fácilmente si es necesario
 // ============================================================
 @Composable
 fun ConCorrutinaScreen() {
@@ -92,7 +92,7 @@ fun ConCorrutinaScreen() {
     // Estado de la pantalla: idle → cargando → listo
     var estado by remember { mutableStateOf("idle") }
 
-    // ✅ CON CORRUTINA: solo necesitamos el scope, sin Handler
+    // CON CORRUTINA: solo necesitamos el scope, sin Handler
     // rememberCoroutineScope() nos da el scope ligado al Composable
     val scope = rememberCoroutineScope()
 
@@ -121,7 +121,7 @@ fun ConCorrutinaScreen() {
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
-                                text = "✅ CON CORRUTINA",
+                                text = "CON CORRUTINA",
                                 color = Color.White,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,
@@ -138,7 +138,7 @@ fun ConCorrutinaScreen() {
                     }
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "✅ Código limpio, simple y eficiente",
+                        text = "Código limpio, simple y eficiente",
                         color = Color.White.copy(alpha = 0.8f),
                         fontSize = 12.sp
                     )
@@ -188,7 +188,7 @@ fun ConCorrutinaScreen() {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "✅ Cargado — código limpio con corrutina",
+                        text = "Cargado — código limpio con corrutina",
                         color = Color(0xFF69F0AE),
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
@@ -204,8 +204,8 @@ fun ConCorrutinaScreen() {
             //   3. delay(3000) espera 3 segundos sin bloquear UI
             //   4. Regresa automáticamente al hilo principal
             //   5. Actualiza lista y cambia estado a "listo"
-            // ✅ Todo en pocas líneas, sin Thread ni Handler manual
-            // ✅ Dispatchers.IO optimiza el uso de hilos automáticamente
+            // Todo en pocas líneas, sin Thread ni Handler manual
+            // Dispatchers.IO optimiza el uso de hilos automáticamente
             // --------------------------------------------------
             Box(
                 modifier = Modifier
@@ -214,7 +214,7 @@ fun ConCorrutinaScreen() {
             ) {
                 Button(
                     onClick = {
-                        // ✅ CON CORRUTINA: código limpio y simple
+                        // CON CORRUTINA: código limpio y simple
                         // scope.launch inicia la corrutina
                         scope.launch {
                             estado = "cargando"
